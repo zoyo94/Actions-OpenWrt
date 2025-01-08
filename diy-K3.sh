@@ -17,7 +17,7 @@
 #uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
 
 # 修改openwrt登陆地址,把下面的192.168.2.2修改成你想要的就可以了
-sed -i 's/192.168.1.1/192.168.3.1/g' ./package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.5.1/g' ./package/base-files/files/bin/config_generate
 
 
 # 修改主机名字，把OpenWrt-123修改你喜欢的就行（不能纯数字或者使用中文）
