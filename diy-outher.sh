@@ -1,5 +1,5 @@
 # 取消掉luci-theme-bootstrap默认
-#sed -i 's/+luci-theme-bootstrap//g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/+luci-theme-bootstrap//g' ./feeds/luci/collections/luci/Makefile
 
 # 修改默认语言主题
 sed -i 's/auto/"zh_cn"/g' feeds/luci/modules/luci-base/root/etc/config/luci
