@@ -18,3 +18,6 @@
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+sed -i 's/+luci-theme-bootstrap//g' ./feeds/luci/collections/luci/Makefile
+sed -i '/+luci-theme-bootstrap/d' ./feeds/luci/collections/luci-light/Makefile 
+sed -i '/\/bin\/login -f root/!s|/bin/login|/bin/login -f root|' feeds/packages/utils/ttyd/files/ttyd.config  
