@@ -38,4 +38,4 @@ git clone --depth 1 https://github.com/liudf0716/luci-app-yt-dlp.git feeds/luci/
 # Add a feed source
 sed -i '$a src-git kiddin9 https://github.com/kiddin9/kwrt-packages' feeds.conf.default
 
-ln -s /usr/bin/llvm-strip-16 /usr/bin/llvm-strip
+sudo ln -s /usr/bin/llvm-strip-16 /usr/bin/llvm-strip
