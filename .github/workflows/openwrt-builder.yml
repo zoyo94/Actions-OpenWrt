@@ -91,6 +91,7 @@ jobs:
         /usr/local/share/powershell /usr/local/share/chromium /usr/local/lib/node_modules
         sudo timedatectl set-timezone "$TZ"
         sudo chown $USER:$GROUPS $GITHUB_WORKSPACE
+        sudo ln -s /usr/bin/llvm-strip-16 /usr/bin/llvm-strip
 
     - name: Clone source code
       working-directory: ./

@@ -24,18 +24,16 @@ sed -i "245a\                set system.@system[-1].zonename='Asia/Shanghai'" ./
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' ./package/lean/default-settings/files/zzz-default-settings
 
-git clone --depth 1 https://github.com/QiuSimons/luci-app-daed.git package/zoyo/luci-app-daed
-git clone --depth 1 https://github.com/sbwml/luci-app-mosdns.git package/zoyo/luci-app-mosdns
-git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/zoyo/luci-app-lucky
-git clone --depth 1 -b dev https://github.com/vernesong/OpenClash.git package/zoyo/luci-app-openclash
-git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/zoyo/luci-theme-argon
-git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git package/zoyo/luci-app-argon-config
-git clone --depth 1 https://github.com/liudf0716/luci-app-yt-dlp.git feeds/luci/applications/luci-app-yt-dlp
-
+git clone --depth 1 https://github.com/QiuSimons/luci-app-daed.git package/lean/luci-app-daed
+git clone --depth 1 https://github.com/sbwml/luci-app-mosdns.git package/lean/luci-app-mosdns
+git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/lean/luci-app-lucky
+git clone --depth 1 -b dev https://github.com/vernesong/OpenClash.git package/lean/luci-app-openclash
+git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
 sed -i '$a src-git kiddin9 https://github.com/kiddin9/kwrt-packages' feeds.conf.default
 
-sudo ln -s /usr/bin/llvm-strip-16 /usr/bin/llvm-strip
+# sudo ln -s /usr/bin/llvm-strip-16 /usr/bin/llvm-strip
