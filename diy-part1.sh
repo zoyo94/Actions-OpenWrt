@@ -24,12 +24,13 @@ sed -i "245a\                set system.@system[-1].zonename='Asia/Shanghai'" ./
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' ./package/lean/default-settings/files/zzz-default-settings
 
-git clone --depth 1 https://github.com/QiuSimons/luci-app-daed.git package/lean/luci-app-daed
-git clone --depth 1 https://github.com/sbwml/luci-app-mosdns.git package/lean/luci-app-mosdns
-git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/lean/luci-app-lucky
-git clone --depth 1 -b dev https://github.com/vernesong/OpenClash.git package/lean/luci-app-openclash
-git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
-git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
+#git clone --depth 1 https://github.com/QiuSimons/luci-app-daed.git package/lean/luci-app-daed
+#git clone --depth 1 https://github.com/sbwml/luci-app-mosdns.git package/lean/luci-app-mosdns
+#git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/lean/luci-app-lucky
+#git clone --depth 1 -b dev https://github.com/vernesong/OpenClash.git package/lean/luci-app-openclash
+#git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+#git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
+git clone --recurse-submodules --depth=1 https://github.com/zoyo94/luci-lib.git  package/luci-lib
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
