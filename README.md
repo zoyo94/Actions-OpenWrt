@@ -1,3 +1,8 @@
+硬盘不足参考:
+https://github.com/klttr/ActionsBuildOpenWRT/blob/main/.github/workflows/build-x86_64.yml
+整体参考:
+https://github.com/coolsnowwolf/lede/issues/11665
+
 **English** | [中文](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
 # Actions-OpenWrt
