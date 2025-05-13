@@ -35,6 +35,8 @@ git clone --recurse-submodules --depth=1 https://github.com/zoyo94/luci-lib.git 
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-sed -i '$a src-git kiddin9 https://github.com/kiddin9/kwrt-packages' feeds.conf.default
+#sed -i '$a src-git kiddin9 https://github.com/kiddin9/kwrt-packages' feeds.conf.default
 
-# sudo ln -s /usr/bin/llvm-strip-16 /usr/bin/llvm-strip
+# llvm-strip 命令找不到
+ls -al /usr/bin/ | grep llvm-strip
+sudo ln -s /usr/bin/llvm-strip-15 /usr/bin/llvm-strip

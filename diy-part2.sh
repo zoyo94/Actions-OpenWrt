@@ -10,14 +10,12 @@
 # See /LICENSE for more information.
 #
 
-# Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+
 
 # Modify default theme
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-
-# Modify hostname
-#sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 sed -i 's/+luci-theme-bootstrap//g' ./feeds/luci/collections/luci/Makefile
 sed -i '/+luci-theme-bootstrap/d' ./feeds/luci/collections/luci-light/Makefile 
+
+# ttyd自动登录
 sed -i '/\/bin\/login -f root/!s|/bin/login|/bin/login -f root|' feeds/packages/utils/ttyd/files/ttyd.config  

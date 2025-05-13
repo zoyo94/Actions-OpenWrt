@@ -8,7 +8,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config
+  CONFIG_FILE: r2s.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -85,14 +85,12 @@ jobs:
         mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pyelftools \
         libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip \
         vim wget xmlto xxd zlib1g-dev python3-setuptools
-        ls -al /usr/bin/ | grep llvm-strip
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo rm -rf /etc/apt/sources.list.d/* /usr/local/lib/android /opt/ghc /usr/share/dotnet /usr/local/graalvm /usr/local/.ghcup \
         /usr/local/share/powershell /usr/local/share/chromium /usr/local/lib/node_modules
         sudo timedatectl set-timezone "$TZ"
         sudo chown $USER:$GROUPS $GITHUB_WORKSPACE
-        sudo ln -s /usr/bin/llvm-strip-15 /usr/bin/llvm-strip
 
     - name: Clone source code
       working-directory: ./
