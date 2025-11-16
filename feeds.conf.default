@@ -15,4 +15,5 @@ src-git routing https://github.com/coolsnowwolf/routing
 #src-git kenzo https://github.com/kenzok8/openwrt-packages
 #src-git small https://github.com/kenzok8/small
 #src-git OpenAppFilter https://github.com/destan19/OpenAppFilter
-src-git kiddin9 https://github.com/kiddin9/kwrt-packages
+#src-git kiddin9 https://github.com/kiddin9/kwrt-packages
+src-git smpackage https://github.com/kenzok8/small-package
