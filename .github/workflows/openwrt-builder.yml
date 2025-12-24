@@ -31,7 +31,8 @@ jobs:
         df -hT
         echo "=============================================================================="
 
-    - name: "Optimize Disk Space"
+    # 【修改1：强化磁盘清理，删除更多超大冗余文件】
+    - name: "Optimize Disk Space (Deep Clean)"
       uses: "hugoalh/disk-space-optimizer-ghaction@v0.8.1"
       with:
         operate_sudo: "True"
@@ -52,11 +53,12 @@ jobs:
         npm_clean: "True"
         os_swap: "True"
 
+    # 【修改2：最大化磁盘空间，根目录保留4G（原2G不够）】
     - name: Freeing up disk space
       uses: easimon/maximize-build-space@master
       with: 
-        root-reserve-mb: 2048
-        swap-size-mb: 1
+        root-reserve-mb: 4096  # 根目录保留4G，原2G太小
+        swap-size-mb: 8192     # 增加swap到8G，避免编译OOM
         remove-dotnet: 'true'
         remove-android: 'true'
         remove-haskell: 'true'
@@ -72,6 +74,17 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@main
+
+    # 【修改3：重定向apt缓存到120G工作目录，避免占根目录】
+    - name: Redirect APT to Work Directory (120G Space)
+      run: |
+        # 创建apt缓存目录（工作目录有120G）
+        mkdir -p $GITHUB_WORKSPACE/apt-cache
+        # 配置apt将缓存/列表文件写到工作目录
+        echo "Dir::Cache::Archives \"$GITHUB_WORKSPACE/apt-cache/archives\";" | sudo tee /etc/apt/apt.conf.d/99-redirect-apt
+        echo "Dir::State::Lists \"$GITHUB_WORKSPACE/apt-cache/lists\";" | sudo tee -a /etc/apt/apt.conf.d/99-redirect-apt
+        # 清理旧apt缓存
+        sudo apt clean
 
     - name: Initialization environment
       env:
