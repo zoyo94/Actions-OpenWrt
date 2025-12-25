@@ -17,8 +17,8 @@ sed -i 's/192.168.1.1/192.168.5.1/g' ./package/base-files/files/bin/config_gener
 sed -i 's/LEDE/X86/g' ./package/base-files/files/bin/config_generate
 
 # 设定时区
-sed -i 's/UTC/CST-8/g' ./package/base-files/luci/bin/config_generate
-sed -i "245a\                set system.@system[-1].zonename='Asia/Shanghai'" ./package/base-files/files/bin/config_generate
+sed -i "s/zonename='UTC'/zonename='Asia\/Shanghai'/" ./package/base-files/files/bin/config_generate
+sed -i "s/timezone='[^']*'/timezone='CST-8'/" ./package/base-files/files/bin/config_generate
 
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
